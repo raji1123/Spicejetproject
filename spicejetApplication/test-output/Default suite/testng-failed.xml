@@ -6,12 +6,8 @@
       <class name="testcompenet.Sanitytestsignup">
         <methods>
           <include name="setup"/>
-          <include name="roundtripflightsearch"/>
           <include name="flightbookingpagecontactinfo"/>
-          <include name="flightbookingpage"/>
           <include name="reportend"/>
-          <include name="existingdetails"/>
-          <include name="validsignup"/>
           <include name="reportstart"/>
           <include name="finish"/>
         </methods>

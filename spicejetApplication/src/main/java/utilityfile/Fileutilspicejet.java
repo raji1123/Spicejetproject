@@ -37,18 +37,5 @@ public class Fileutilspicejet extends Webutilspicejet{
 		
 	}
 	
-	/*
-	 * File file=new File(".\\propertyfile\\demo.properties"); FileInputStream
-	 * input=new FileInputStream(file);
-	 * 
-	 * pro=new Properties();
-	 * 
-	 * pro.load(input) ;
-	 * 
-	 * value= pro.getProperty(key) ;
-	 * 
-	 * 
-	 * } catch (Exception e) { // TODO Auto-generated catch block
-	 * e.printStackTrace(); } return value;
-	 */
+	
 }

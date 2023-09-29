@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import Basecomponent.BaseClass;
 
@@ -46,7 +47,7 @@ WebElement password;
 WebElement click;
 
 
-@FindBy(xpath="//div[@class='css-1dbjc4n r-1jkjb']")
+@FindBy(xpath="(//div[@class='css-76zvg2 r-jwli3a'])[1]")
 WebElement Actual_mobile;
 
 
@@ -57,7 +58,7 @@ WebElement Actual_invalidmobile;
 
 public void validloginmobile() {
 	
-	String Expected="Hi cddddd";
+	String Expected="C";
 	eleclick(login,4);
 	javascript(radiobuttonmobile);
 	eleclick(radiobuttonmobile,4);
@@ -69,7 +70,10 @@ public void validloginmobile() {
 	
 	javascript(Actual_mobile);
 	explicitwait(Actual_mobile,10);
-	String actual=webpagegettitle( Actual_mobile);
+	
+	
+	String actual=Actual_mobile.getText();
+	Assert.assertEquals(actual, Expected);
 }
 
 
@@ -90,6 +94,7 @@ public void invaliddetailsloginmobile() {
 	javascript( Actual_invalidmobile);
 	explicitwait( Actual_invalidmobile,10);
 	String actual=webpagegettitle(Actual_invalidmobile);
+	Assert.assertEquals(actual, Expected);
 }
 
 

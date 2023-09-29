@@ -7,9 +7,12 @@ import Basecomponent.BaseClass;
 import listener.Itestlistener;
 import listener.RetryAnalayzer;
 import pagecomponent.BookingPage;
+import pagecomponent.Flightstatus;
 import pagecomponent.Loginpage;
+import pagecomponent.Managebooking;
 import pagecomponent.SearchFlights;
 import pagecomponent.Signuppage;
+import pagecomponent.Statusandcheckin;
 
 
 @Listeners(Itestlistener.class)
@@ -20,8 +23,9 @@ public class Sanitytestsignup extends BaseClass{
 	public Loginpage obj2;
 	public SearchFlights obj3;
 	public BookingPage obj4;
-	
-	
+	public Statusandcheckin obj5;
+	public Flightstatus obj6;
+	public Managebooking obj7;
 	
 	@Test(priority=1,retryAnalyzer=RetryAnalayzer.class)
 	public void validsignup() throws Exception {
@@ -50,7 +54,7 @@ public class Sanitytestsignup extends BaseClass{
 			
 		}
   
-  @Test
+  @Test(priority=4,retryAnalyzer=RetryAnalayzer.class)
   public void mobilelogin() {
 	  
 	  
@@ -62,7 +66,7 @@ public class Sanitytestsignup extends BaseClass{
   
   
   
-  @Test
+  @Test(priority=5,retryAnalyzer=RetryAnalayzer.class)
   public void invalidmobiledtailslogin() {
 	  
 	  
@@ -75,7 +79,7 @@ public class Sanitytestsignup extends BaseClass{
   }
   
   
-  @Test
+  @Test(priority=6,retryAnalyzer=RetryAnalayzer.class)
   public void onewayflightsearch() {
 	  
 	  
@@ -88,7 +92,7 @@ public class Sanitytestsignup extends BaseClass{
   }
   
   
-  @Test
+  @Test(priority=7)
   public void roundtripflightsearch() {
 	  
 	  
@@ -100,22 +104,19 @@ public class Sanitytestsignup extends BaseClass{
   
   }
   
-  @Test(dependsOnMethods={"roundtripflightsearch"},retryAnalyzer=RetryAnalayzer.class)
-public void flightbookingpage() throws Exception {
+  @Test(priority=8,retryAnalyzer=RetryAnalayzer.class)
+  public void Roundtripflightsearchwithtermsandcondition() {
 	  
-	  obj3=new SearchFlights();
-      obj4=new BookingPage();
-      test=Reports.createTest("Bookingpage");
-      
-	   obj3.Roundtripflightsearch();
-	   obj4.bookingflight();
-	   
-  
+	  
+      obj3=new SearchFlights();
+      test=Reports.createTest("Roundtripflightsearchwithtermsandcondition");
+	obj3.Roundtripflightsearchwithtermsandcondition();
   
   
   }
   
-  @Test(retryAnalyzer=RetryAnalayzer.class,dependsOnMethods={"flightbookingpage"})
+  
+  @Test(priority=8,retryAnalyzer=RetryAnalayzer.class)
   public void flightbookingpagecontactinfo() throws Exception {
   	  
   	  obj3=new SearchFlights();
@@ -123,13 +124,75 @@ public void flightbookingpage() throws Exception {
        test=Reports.createTest("flightbookingpagecontactinfo");
         
   	   obj3.Roundtripflightsearch();
-  	   obj4.bookingflight();
-  	   obj4.contactinformation();
+       
+  	  
+  	   obj4.bookingcontactinformation();
     
     
     
     }
+  
+  
+  
+  
+  @Test(priority=9,retryAnalyzer=RetryAnalayzer.class)
+  public void checkin()  {
+  	  
+  	  
+       test=Reports.createTest("checkin");
+        
+  	 obj5=new Statusandcheckin();
+  	 obj5.checkin();
     
+    
+    
+    }
+  
+  @Test(priority=10,retryAnalyzer=RetryAnalayzer.class)
+  public void missingdetailscheckin()  {
+  	  
+  	  
+      test=Reports.createTest("missingdetailscheckin");
+       
+ 	 obj5=new Statusandcheckin();
+     obj5.missingdetailscheckin();
+   
+   
+   
+   }
 	
+  @Test(priority=12,retryAnalyzer=RetryAnalayzer.class)
+  public void flightstatus()  {
+  	  
+  	  
+      test=Reports.createTest("flightstatus");
+       
+ 	 obj6=new Flightstatus();
+     obj6.flightstatus();
+   
+   
+   
+   }
 	
+  
+  
+  @Test(priority=13)
+  public void managebooking()  {
+  	  
+  	  
+      test=Reports.createTest("managebooking");
+       
+ 	 obj7=new Managebooking();
+     obj7.managebooking();
+   
+   
+   
+   }
+	
+  
+  
+  
+  
+  
+  
 }

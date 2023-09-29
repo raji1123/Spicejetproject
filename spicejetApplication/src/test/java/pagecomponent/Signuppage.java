@@ -174,7 +174,7 @@ public Signuppage()  {
    public void signupmissingdetails() throws Exception {
 		
 		
-		String Expected="SpiceClub - The frequent flyer program of SpiceJet";
+		String Expected="https://spiceclub.spicejet.com/signup";
 		
 	   
 	   
@@ -229,7 +229,7 @@ public Signuppage()  {
 			
 
 			
-			String actual=driver.getTitle();
+			String actual=driver.getCurrentUrl();
 		
 			
 			System.out.println(actual);

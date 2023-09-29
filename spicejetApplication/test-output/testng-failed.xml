@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <listeners>
-    <listener class-name="listener.Itestlistener"/>
-  </listeners>
-  <test thread-count="5" name="Test(failed)">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
       <class name="testcompenet.Sanitytestsignup">
         <methods>
-          <include name="flightbookingpagecontactinfo"/>
-          <include name="roundtripflightsearch"/>
           <include name="setup"/>
-          <include name="flightbookingpage"/>
+          <include name="flightbookingpagecontactinfo"/>
           <include name="reportend"/>
-          <include name="validsignup"/>
           <include name="reportstart"/>
           <include name="finish"/>
         </methods>
       </class> <!-- testcompenet.Sanitytestsignup -->
     </classes>
-  </test> <!-- Test(failed) -->
-</suite> <!-- Failed suite [Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

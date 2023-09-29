@@ -35,7 +35,7 @@ WebElement Actualresultcontinuepayement;
 WebElement Titlebox;
 
 
-@FindBy(xpath="(//div[@class='css-1dbjc4n r-1habvwh r-1loqt21 r-1777fci r-1inuy60 r-1yt7n81 r-1otgn73'])[1]")
+@FindBy(xpath="(//div[@class='css-1dbjc4n r-1habvwh r-1loqt21 r-1777fci r-1inuy60 r-1yt7n81 r-1otgn73'])[2]")
 WebElement Title;
 
 
@@ -71,23 +71,59 @@ WebElement city;
 WebElement checkbox;
 
 
-public void bookingflight() throws InterruptedException {
+
+
+@FindBy(xpath="(//div[@class='css-1dbjc4n r-zso239'])[5]")
+WebElement primarypassenger;
+
+
+@FindBy(xpath="//div[@class='css-1dbjc4n r-19m6qjp r-z2wwpe r-1loqt21 r-156q2ks r-1sp51qo r-d9fdf6 r-1otgn73 r-eafdt9 r-1i6wzkk r-lrvibr']")
+WebElement next;
+
+
+@FindBy(xpath="(//div[@class='css-1dbjc4n r-14lw9ot r-11u4nky r-z2wwpe r-1phboty r-rs99b7 r-1loqt21 r-1ugchlj r-1777fci r-ymttw5 r-5njf8e r-1otgn73 r-19554kt r-184en5c'])")
+WebElement passengertitlt2;
+
+
+
+@FindBy(xpath="(//div[@class='css-1dbjc4n r-1habvwh r-1loqt21 r-mabqd8 r-1777fci r-1yt7n81 r-1otgn73'])[2]")
+WebElement list;
+
+@FindBy(xpath="(//input[@type='text'])[6]")
+WebElement pasfirstname;
+
+@FindBy(xpath="(//input[@type='text'])[7]")
+WebElement paslastname;
+
+
+@FindBy(xpath="(//input[@type='text'])[8]")
+WebElement passmobilenumber;
+
+
+@FindBy(xpath="//*[text()='Continue']")
+WebElement continuewithaddon;
+
+
+@FindBy(xpath="//body[1]/div[1]/div[1]/div[2]/p[3]")
+WebElement skipcontent;
+
+
+@FindBy(xpath="(//span[contains(text(),'Skip this to skip comfort.')])[1]")
+WebElement skipcontent2;
+
+@FindBy(xpath="(//*[text()='Continue'])[3]")
+WebElement continuewithpayment;
+
+public void bookingcontactinformation()
+
+
+{
 	
-	//String Expected="https://www.spicejet.com/booking";
+	
+	String Expected="https://www.spicejet.com/booking/addons";
 	
 	javascript(continuewithpayement);
 	eleclick(continuewithpayement,10);
-	
-	Thread.sleep(3000);
-	//String Actual=driver.getCurrentUrl();
-	//Assert.assertEquals(Actual, Expected);
-	
-}
-
-public void contactinformation()
-{
-	
-	String Expected="https://www.spicejet.com/booking";
 	javascript(Titlebox);
 	eleclick(Titlebox,10);
 	eleclick(Title,10);
@@ -111,7 +147,48 @@ public void contactinformation()
 	eleclick(checkbox,10);
 	
 	
+	//1st passenger details
+	javascript(primarypassenger);
+	eleclick(primarypassenger,10);
+	
+	
+	
+	javascript(next);
+	eleclick(next,10);
+	
+	//2nd passenger details
+	//javascript(passengertitlt2);
+	//eleclick(passengertitlt2,10);
+	
+	
+	javascript(pasfirstname);
+	sendvaluetext(pasfirstname,propertyfile("passenger2firstname"));
+	javascript(paslastname);
+	sendvaluetext(paslastname,propertyfile("passenger2lakshminame"));
+	
+	
+	javascript(passmobilenumber);
+	sendvaluetext(passmobilenumber,propertyfile("passenger2mobilenumber"));
+	
+	
+	mouseaction(continuewithaddon);
+	eleclick(continuewithaddon,10);
+	
+	
+	//javascript(continuewithpayment);
+	//eleclick(continuewithpayment,10);
+	
+	//javascript(skipcontent);
+	//eleclick(skipcontent,10);
+	
+	
+	
 	String Actual=driver.getCurrentUrl();
+	
+	System.out.println(Actual);
+	
+	
+	
 	Assert.assertEquals(Actual, Expected);
 
 }

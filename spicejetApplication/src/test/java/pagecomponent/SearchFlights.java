@@ -42,6 +42,11 @@ List<WebElement> to;
 List<WebElement> calender;
 
 
+
+@FindBy(xpath="(//div[@class='css-1dbjc4n r-1loqt21 r-1otgn73'])[1]")
+WebElement close;
+
+
 @FindBy(xpath="//div[@class='css-1dbjc4n']//div//div[@class='css-1dbjc4n r-14lw9ot r-11u4nky r-z2wwpe r-1phboty r-rs99b7 r-1loqt21 r-13awgt0 r-ymttw5 r-5njf8e r-1otgn73']")
 WebElement passenger;
 
@@ -90,6 +95,9 @@ WebElement govtemployee;
 @FindBy(xpath="(//div[@class='css-1dbjc4n r-1awozwy r-z2wwpe r-1loqt21 r-18u37iz r-1777fci r-1g94qm0 r-d9fdf6 r-1w50u8q r-ah5dr5 r-1otgn73'])[1]")
 WebElement searchflight;
 
+@FindBy(xpath="//div[@class='css-76zvg2 r-jwli3a r-1i10wst r-1kfrs79']")
+WebElement searchflighttermsandcondition;
+
 @FindBy(xpath="(//div[@class='css-1dbjc4n r-1tf5bf9 r-1777fci r-1ww30s9'])")
 WebElement studenttermsandcondition;
 
@@ -129,7 +137,7 @@ WebElement Actualresultroundtrip;
 
 public void onewayflightsearch() {
 	
-	String Expected="Unfortunately, there are no flights available for the Students fare.";
+	String Expected="Unfortunately, there are no flights available.";
 	
 	
 	eleclick(originclick,10);
@@ -143,30 +151,19 @@ public void onewayflightsearch() {
 	
 	
 	
-	select("26",calender);
+	eleclick(close,10);
 	
 	javascript(passenger);
 	eleclick(passenger,10);
 	
-
 	javascript(adultplusbutton);
 	eleclick(adultplusbutton,10);
 	
 	eleclick (normalclick,10);
 	
-	
 	select("INR",currency);
-
-	eleclick (student,10);
-	
 	eleclick (searchflight,10);
-	
-	javascript(studenttermsandcondition);
-	eleclick (studenttermsandcondition,10);
-	
-	eleclick (continuele,10);
-	
-	
+
 	javascript(Actualresultoneway);
     String actual=Actualresultoneway.getText();
 
@@ -179,6 +176,58 @@ public void onewayflightsearch() {
 }
 
 public void Roundtripflightsearch() {
+	
+	
+	String Expected="Select your Departure to Mumbai";
+	
+	eleclick(radiobuttonroundtrip,10);
+	
+	eleclick(originclick,10);
+	
+
+	select("Chennai",from);
+	
+	eleclick(destinationclick,10);
+	
+	select("Mumbai",to);
+	
+	
+	
+	select("29",calender);
+	
+	select("30",calender);
+	javascript(passenger);
+	eleclick(passenger,10);
+	
+
+	javascript(adultplusbutton);
+	eleclick(adultplusbutton,10);
+	
+	eleclick (normalclick,10);
+	
+	
+	select("INR",currency);
+
+	
+	
+	eleclick (searchflight,10);
+	
+	
+	
+	eleclick (continuele,10);
+	
+	
+	javascript(Actualresultroundtrip);
+    String actual=Actualresultroundtrip.getText();
+
+
+
+   Assert.assertEquals(actual, Expected);
+
+
+
+}
+public void Roundtripflightsearchwithtermsandcondition() {
 	
 	
 	String Expected="Select your Departure to Chennai";
@@ -196,7 +245,7 @@ public void Roundtripflightsearch() {
 	
 	
 	
-	select("27",calender);
+	select("29",calender);
 	
 	select("30",calender);
 	javascript(passenger);
@@ -211,12 +260,12 @@ public void Roundtripflightsearch() {
 	
 	select("INR",currency);
 
-	//eleclick (senoiorcitizen,10);
-	
+	eleclick (student,10);
+	javascript(searchflight);
 	eleclick (searchflight,10);
 	
-	//javascript(seniorcitizentermsandccondition);
-	//eleclick (seniorcitizentermsandccondition,10);
+	javascript(studenttermsandcondition);
+	eleclick (studenttermsandcondition,10);
 	
 	eleclick (continuele,10);
 	
@@ -231,7 +280,6 @@ public void Roundtripflightsearch() {
 
 
 }
-
 
 
 }

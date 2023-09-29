@@ -40,13 +40,6 @@ public class Itestlistener extends BaseClass implements ITestListener,IAnnotatio
 	}
 
 	
-	public void transform(ITestAnnotation annotation, Class testClass, Constructor testConstructor, Method testMethod) {
-		// TODO Auto-generated method stub
-		annotation.setRetryAnalyzer(listener.RetryAnalayzer .class);
-		
-		
-	}
-
 	@Override
 	public void onFinish(ITestContext context) {
 		// TODO Auto-generated method stub

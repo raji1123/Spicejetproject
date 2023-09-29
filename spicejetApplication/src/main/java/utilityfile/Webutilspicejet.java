@@ -178,7 +178,7 @@ public class Webutilspicejet {
 	public static void mouseaction(WebElement ele) {
 		
 		Actions act=new Actions(driver);
-		act.doubleClick(ele);
+		act.doubleClick(ele).perform();
 		
 		
 	}
