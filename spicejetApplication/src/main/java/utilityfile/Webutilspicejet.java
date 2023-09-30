@@ -125,7 +125,7 @@ public class Webutilspicejet {
 		
 		
 		
-		 String location=System.getProperty("user.dir")+"/Screenshot/success_"+name+".png";
+		 String location=System.getProperty("user.dir")+"/Screenshot/success_"+name+datevalue()+".png";
 		
 		File destination =new File(location);
 		
@@ -144,7 +144,7 @@ public class Webutilspicejet {
 		
 		File source=ts.getScreenshotAs(OutputType.FILE);
 	
-		location=System.getProperty("user.dir")+"/failedscreenshot/failure_"+name+".png";
+		location=System.getProperty("user.dir")+"/failedscreenshot/failure_"+name+datevalue()+".png";
 		File destination=new File(location);
 		
 			FileHandler.copy(source, destination);
