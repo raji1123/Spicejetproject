@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="listener.ItestListner"/>
+    <listener class-name="listener.Iannotationtransformer"/>
+  </listeners>
+  <test thread-count="5" name="Test(failed)">
+    <classes>
+      <class name="testcomponent.Sanitytest">
+        <methods>
+          <include name="checkoutpageexistingcustomer"/>
+          <include name="finish"/>
+          <include name="reportstart"/>
+          <include name="setup"/>
+          <include name="reportend"/>
+          <include name="Searchproductbydepartment"/>
+        </methods>
+      </class> <!-- testcomponent.Sanitytest -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
